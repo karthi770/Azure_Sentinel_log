@@ -1,52 +1,52 @@
-Azure Sentinel
-1. Creating a VM and the resource group:
+## Azure Sentinel
+### Creating a VM and the resource group:
+<u>Basic tab:</u>
+![image](https://github.com/user-attachments/assets/9c119232-1c64-463b-aadd-3e79c75f7417)![image](https://github.com/user-attachments/assets/15ad475f-37af-407f-b2ad-89c14767d08e)
+![image](https://github.com/user-attachments/assets/298a269e-0da1-465d-a770-81a509b84b3a)
+![image](https://github.com/user-attachments/assets/21342b2e-5983-448e-8e5d-aae9175447fc)
+![image](https://github.com/user-attachments/assets/a3832423-49d7-4ddc-ae78-dcf5c53ea37f)
 
-	Basic tab:
-	![image](https://github.com/user-attachments/assets/9c119232-1c64-463b-aadd-3e79c75f7417)
-	![image](https://github.com/user-attachments/assets/15ad475f-37af-407f-b2ad-89c14767d08e)
-	![image](https://github.com/user-attachments/assets/298a269e-0da1-465d-a770-81a509b84b3a)
-	![image](https://github.com/user-attachments/assets/21342b2e-5983-448e-8e5d-aae9175447fc)
-	![image](https://github.com/user-attachments/assets/a3832423-49d7-4ddc-ae78-dcf5c53ea37f)
-
-	Networking tab:
-	![image](https://github.com/user-attachments/assets/0fffe750-0e63-4712-b0af-3a9ca2d8346c)
+<u>Networking tab:</u>
+![image](https://github.com/user-attachments/assets/0fffe750-0e63-4712-b0af-3a9ca2d8346c)
 >[!info]
 >Inside the networking tab create a new security group that will allow all the traffic inside the VM.
-
 
 ![image](https://github.com/user-attachments/assets/8f18f6f0-c86b-40ca-87c8-4edf541dbcd2)![image](https://github.com/user-attachments/assets/6598fa36-5df3-4cc2-83dd-e0da51c13935)
 These settings are enough for now and we can go ahead and create the Virtual machine.
 
-2. Create the Log analytics workspace
-	![image](https://github.com/user-attachments/assets/16ab41ab-dc7b-4f23-bf34-70114fc4216c)
-	Click Review + Create and then click on Create at the end of the page.
+### Create the Log analytics workspace
+![image](https://github.com/user-attachments/assets/16ab41ab-dc7b-4f23-bf34-70114fc4216c)
+Click Review + Create and then click on Create at the end of the page.
 
-3. Security Center (Renamed as MS Defender)
-		![image](https://github.com/user-attachments/assets/6f7f506b-e741-4438-8086-b95a250ef475)
-		Go to the environment settings and enable the defender for honeypot log.
-		![image](https://github.com/user-attachments/assets/1ad7b780-7eb0-4e27-9cb5-e614026f4075)
-		![image](https://github.com/user-attachments/assets/0513a4e0-43fa-4f23-9ced-5e02814e03b6)
-	Now Go to Log analystics workspace and connect to the VM:
-	![image](https://github.com/user-attachments/assets/f46ea944-685a-436b-ab39-c44482efe06f)
-	Now go to Azure Sentinel and and add Sentinel to a workspace:
-		![image](https://github.com/user-attachments/assets/ff78a0d1-faa1-46e4-86f0-a2837e8328ce)
-		
+### Security Center (Renamed as MS Defender)
+![image](https://github.com/user-attachments/assets/6f7f506b-e741-4438-8086-b95a250ef475)
+Go to the environment settings and enable the defender for honeypot log.
+![image](https://github.com/user-attachments/assets/1ad7b780-7eb0-4e27-9cb5-e614026f4075)
+![image](https://github.com/user-attachments/assets/0513a4e0-43fa-4f23-9ced-5e02814e03b6)
 
-Connect to the VM:
+### Remaining Steps
+
+- Now Go to Log analytics workspace and connect to the VM:
+![image](https://github.com/user-attachments/assets/f46ea944-685a-436b-ab39-c44482efe06f)
+
+- Now go to Azure Sentinel and and add Sentinel to a workspace:
+![image](https://github.com/user-attachments/assets/ff78a0d1-faa1-46e4-86f0-a2837e8328ce)
+
+- Connect to the VM:
 ![image](https://github.com/user-attachments/assets/39fd94ee-6a8a-4839-92b0-98ca74369f51)
 ![image](https://github.com/user-attachments/assets/3cc0f24f-155b-4fe7-b094-8f47cc76ec25)
 >[!info]
 >Once I deliberately failed the login and the the Event viewer as recorded it, if we get into the log we can find the details of the user trying to login and their IP address, which we can use to visualize.
 >
 
-
+- Tried to ping the VM from the local machine and it failed.
 ![image](https://github.com/user-attachments/assets/da4626af-ff28-4613-b0c8-5d7b587b0fe8)
-Tried to ping the VM from the local machine and it failed.
 
+- Now RDP to the VM and disable the firewall. Go to all tabs (private, public) and off the state.
 ![image](https://github.com/user-attachments/assets/b4c2c59c-c219-45ad-ae51-1daa4a06c6ff)
-Now to the RDP and disable the firewall. Go to all tabs (private, public) and off the state.
 
-To get the IP location of the people logging in we need the API key of a site that will help us track the IP addresses. Sign in and get the IP.
+
+- To get the IP location of the people logging in we need the API key of a site that will help us track the IP addresses. Sign in and get the IP.
 ![image](https://github.com/user-attachments/assets/072a89ba-ddb8-45a4-b30b-02bd8fe64459)
 
 ```powershell
@@ -194,10 +194,11 @@ Use the above PS script and change the API key, run the script in the VM.
 ![image](https://github.com/user-attachments/assets/df900e0d-2791-4ee9-b640-17c885de49a8)
 We shall we a log like this where people have tried to log in and failed.
 
-Below is the snap of the log file which has the details that were scraped from the IP geolocation website and show it in the notepad.
+- Below is the snap of the log file which has the details that were scraped from the IP geolocation website and show it in the notepad.
 ![image](https://github.com/user-attachments/assets/982c6a2b-dba5-4b5b-ab19-8bbcb726224a)
 
-Create a Custom log:
+
+#### Create a Custom log:
 
 Go to the Azure portal and in the log analytics workspace create custom log:
 ![image](https://github.com/user-attachments/assets/465f4ef6-25c9-49b4-9fc3-3e7772eb8c24)
@@ -228,7 +229,7 @@ FAILED_RDP_WITH_GEO_LOC_CL
 ```
 ![image](https://github.com/user-attachments/assets/753fefa3-448e-4161-aac1-4862b6d960d8)
 
-Now go to Sentinel and Create work books 
+- Now go to Sentinel and Create work books 
 ![image](https://github.com/user-attachments/assets/9b946b8f-9563-46a1-80e8-6d6bd5b803dc)
 
 ![image](https://github.com/user-attachments/assets/b1dee1f9-da1d-44b8-baa4-ca4c5c59550b)
@@ -246,7 +247,7 @@ FAILED_RDP_WITH_GEO_LOC_CL
 ![image](https://github.com/user-attachments/assets/291603d4-09b0-4661-b392-bbffdf4d62da)
 Select the map setting for better visualization.
 
-The query needs to be changed to summarize the events:
+- The query needs to be changed to summarize the events:
 ```SQL
 FAILED_RDP_WITH_GEO_LOC_CL
 | parse RawData with "latitude:" Latitude ",longitude:" Longitude ",destinationhost:" DestinationHost ",username:" Username ",sourcehost:" SourceHost ",state:" State ",country:" Country ",label:" Label ",timestamp:" Timestamp
