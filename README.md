@@ -1,5 +1,6 @@
 ## Azure Sentinel
-![1709202316859](https://github.com/user-attachments/assets/09c4cc0e-e258-4eef-907f-a310d8c14c58)
+
+![1691760720056](https://github.com/user-attachments/assets/231eca78-ed90-4409-ab2d-30947da76a64)
 ### Creating a VM and the resource group:
 <u>Basic tab:</u>
 ![image](https://github.com/user-attachments/assets/9c119232-1c64-463b-aadd-3e79c75f7417)![image](https://github.com/user-attachments/assets/15ad475f-37af-407f-b2ad-89c14767d08e)
