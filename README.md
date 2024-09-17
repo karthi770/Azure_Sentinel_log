@@ -1,3 +1,4 @@
+Azure Sentinel
 1. Creating a VM and the resource group:
 
 	Basic tab:
