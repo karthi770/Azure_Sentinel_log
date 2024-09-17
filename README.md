@@ -1,4 +1,5 @@
 ## Azure Sentinel
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fpulse%2Fazure-sentinel-transforming-security-operations-sujith-selvaraj-x0sje&psig=AOvVaw2UkmX0uCWEXGWFKIIyIRa_&ust=1726680517392000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPjF4qnAyogDFQAAAAAdAAAAABAE
 ### Creating a VM and the resource group:
 <u>Basic tab:</u>
 ![image](https://github.com/user-attachments/assets/9c119232-1c64-463b-aadd-3e79c75f7417)![image](https://github.com/user-attachments/assets/15ad475f-37af-407f-b2ad-89c14767d08e)
